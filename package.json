@@ -2,6 +2,7 @@
   "name": "techajaib",
   "version": "0.1.0",
   "private": true,
+  "repository": "https://gitlab.com/zanisis/techajaib.git",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
