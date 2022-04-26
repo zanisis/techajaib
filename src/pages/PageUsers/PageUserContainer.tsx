@@ -32,6 +32,10 @@ const PageUserContainer = () => {
     dispatch(getUsers({ name: searchName, gender, page: 1 }))
   }
 
+  const handlePages = (page: number) => {
+    dispatch(getUsers({ name: searchName, gender, page }))
+  }
+
   const handleResetFilter = () => {
     setGender('all')
     setSearchName('')
@@ -42,10 +46,11 @@ const PageUserContainer = () => {
     ...dataSelector,
     gender,
     searchName,
-    handleResetFilter,
     handleChangeSearch,
-    handleSearchName,
     handleGender,
+    handlePages,
+    handleResetFilter,
+    handleSearchName,
   }
 
   return <PageUserView {...newProps} />

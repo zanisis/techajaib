@@ -36,23 +36,23 @@ const ContentPagination = styled.div`
 type PageUserViewProps = {
   gender: Gender
   searchName: string
-  handleResetFilter: () => void
-  handleSearchName: () => void
   handleChangeSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleGender: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  handlePages: (page: number) => void
+  handleResetFilter: () => void
+  handleSearchName: () => void
 } & PropsFromSelector
 
 const PageUserView = ({
-  results,
   page,
   data,
-  isLoading,
   gender,
   searchName,
-  handleResetFilter,
   handleChangeSearch,
-  handleSearchName,
   handleGender,
+  handlePages,
+  handleResetFilter,
+  handleSearchName,
 }: PageUserViewProps) => (
   <Container>
     <Action>
@@ -129,7 +129,7 @@ const PageUserView = ({
       </table>
     </DataTable>
     <ContentPagination>
-      <Pagination />
+      <Pagination currentPage={page} sizeLimit={5} onClick={handlePages} />
     </ContentPagination>
   </Container>
 )
